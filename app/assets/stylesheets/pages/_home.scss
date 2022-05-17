@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+.homeHeadContent {
+  background-image: url(asset_path("things.jpg"));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+.mainClaimText h1 {
+  text-align: center;
+  color: whitesmoke;
+  text-shadow: black 0px 0px 30px;
+}
