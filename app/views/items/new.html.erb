@@ -1,4 +1,3 @@
-<div class="homeHeadContentNav">
   <div class="navbar navbar-expand-lg navbar-light">
     <div class="navbar-brand">
       <img src="<%= image_path "lendya-logo1.png" %>" alt="Lendya Logo" class="brand-logo">
@@ -14,32 +13,39 @@
       <% end %>
     </div>
   </div>
-</div>
 
+</div>
 <div class="container py-5">
   <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-grey rounded p-4">
-          <h2>Let's make some casshhhhhh</h2>
-
+    <div class="bordered col-12 col-md-6 offset-lg-3 justify-content-center bg-white p-5">
+      <div class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div class="centered"> <h2>Share your item with the community!</h2></div>
             <%= simple_form_for(@item) do |f| %>
-              <%= f.input :title %>
+              <%= f.input :title, :class => "input-field" %>
               <%= f.input :category %>
               <%= f.input :price %>
               <%= f.input :description %>
               <%= f.input :condition %>
               <%= f.input :delivery %>
               <%= f.input :long_rental %>
-              <%= f.input :long_rental %>
-              <%# <%= f.input :availability, as: :file %>
+              <%= f.input :availability %>
+              <%# <%= f.input :photo, as: :file %>
 
-              <div class="btn btn-success p-2">
-                <!--<%= f.submit %> !-->
-                <%= f.button :submit, "Upload!" %>
-              </div>
+      <div><p class="text-center text-gray-500 text-xs">
+         Make sure that all information is correct!
+          </p>
+      </div>
+          <div class="text-center upload-button">
+            <%= f.button :submit, "Upload", class: "btn btn-warning nav-text" %>
+          </div>
+    </div>
+            <div class="centered">
+              <%= link_to 'Back', items_path %>
+            </div>
+
+      </div>
+      </div>
+  </div>
+
 
             <% end %>
-            <%= link_to 'Back', items_path %>
-      </div>
-    </div>
-  </div>
