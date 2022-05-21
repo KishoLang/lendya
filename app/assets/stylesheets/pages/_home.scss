@@ -4,13 +4,49 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 500px;
+  height: 100vh;
 }
 
+// .homeHeadContentNav {
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+//   height: 100px;
+// }
 
-
-.mainClaimText h1 {
+.mainClaimText {
   text-align: center;
   color: whitesmoke;
   text-shadow: black 0px 0px 30px;
+  padding-top: 160px;
+}
+
+.overlay {
+  position: relative;
+  text-align: center;
+  height: 100vh;
+}
+
+.intro-video {
+  z-index: -1;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.overlay-text {
+  padding: 100px;
+}
+.overlay h2 {
+  color: white;
+  text-shadow: black 0px 0px 30px;
+}
+
+.browse-button {
+  color: white;
+  padding: 8px;
+  margin: 2px 16px;
 }
