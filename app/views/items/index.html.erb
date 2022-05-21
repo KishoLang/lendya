@@ -16,30 +16,40 @@
   </div>
 </div>
 
-<div class="index-bg">
-  <div class="text-center p-2">
-    <h3>Check out all these friendly dogs &#128054;</h3>
-    <h6>They are all super friendly, promise!</h6>
-    <h6>Maybe there were one or three incidences, but we're super legit!</h6>
-  </div>
-  <div class="content d-flex justify-content-center">
-    <% @items.each do |item| %>
-    <div class="card d-inline-flex p-2 m-2 text-start" style="width: 18rem; border-radius: 15px; ">
-      <img class="card-img-top" src="..." alt="Card image cap">
-    <%#<% if item.photo.key.nil? %>
-    <%#<% else %>
-     <%# <%= cl_image_tag item.photo.key, class: "dog-avatar" %>
-    <%#<% end %>
-      <ul>
-        <%= item.title %>
-        <li><%= item.category %></li>
-        <li>title: <%= item.title %></li>
-        <li>price: <%= item.price %> € / hour</li>
-      </ul>
-      <p><%= link_to "Show more", item_path(item), :class => "btn btn-success"%></p>
-    </div>
-    <% end %>
-  </div>
 
-  <h3 class="text-center"><%= link_to "Go back", root_path, :class => "btn btn-link" %></h3>
+<div class="container-number-items">
+  <div class="text-center p-2">
+    <div class="col">
+      <% if @query %>
+        <p>You searched for <strong><%= @query %></strong>. We found <%= @items.count %> items out of our <%= Item.count %> on our website.</p>
+      <% else %>
+        <p>All <%= Item.count %> items</p>
+      <% end %>
+    </div>
+  </div>
 </div>
+
+
+<div class="cards">
+  <% @items.each do |item| %>
+    <div class="item-card">
+      <div class="item-card-image">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+      </div>
+      <div class="card-item-content">
+        <h2><%= item.title %></h2>
+        <p><%= item.category %></p>
+      </div>
+      <div class="card-item-pricing">
+        <h2><%= item.price %> € / hour</h2>
+      </div>
+      <div class="item-card-actions">
+        <p><%= link_to "More info", item_path(item), :class => "nav-button-lender btn btn-warning"%></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+<h3 class="text-center"><%= link_to "Go back", root_path, :class => "btn btn-link" %></h3>
