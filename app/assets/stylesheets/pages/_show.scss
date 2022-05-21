@@ -1,19 +1,21 @@
 .show-container {
   display: flex;
-  margin: 50px;
+  margin-top: 150px;
   background-color: white;
 }
 
 .flex-container {
   display: flex;
-
+  width: 100%;
 }
 
 .column-wrapper {
   display: flex;
+  flex-direction: column;
   max-width: 600px;
   margin: 20px;
   font-size: 20px;
+  width: 550px;
 }
 
 .info-list-item {
@@ -39,6 +41,7 @@
 .show-picture {
   width: 400px;
   height: 400px;
+  border-radius: 10px;
   margin-top: 50px;
   margin-left: 30px;
   margin-bottom: 50px;
@@ -48,6 +51,11 @@
 .flex-item-horizontal {
   display: flex;
   background-color: white;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.h4 {
   margin-top: 50px;
   margin-left: 30px;
 }
