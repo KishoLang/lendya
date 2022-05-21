@@ -4,7 +4,7 @@
       <img src="<%= image_path "lendya-logo-yellow.png" %>" alt="Lendya Logo" class="brand-logo">
     </div>
     <div class="d-flex justify-content-end align-items-center m-4">
-      <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-warning" %>
+      <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-info" %>
       <% if user_signed_in? %>
       <!--<%= current_user.email %>-->
         <%= link_to 'SIGN OUT', destroy_user_session_path, method: 'delete', :class => "nav-text" %>
@@ -29,6 +29,6 @@
   </video>
   <div class="overlay-text">
     <h2>What do you need?</h2>
-    <%= link_to 'Browse', items_path, :class => "browse-button btn btn-warning"  %>
+    <%= link_to 'Browse', items_path, :class => "browse-button btn btn-lg btn-info"  %>
   </div>
 </div>
