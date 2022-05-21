@@ -1,7 +1,7 @@
-<div class="homeHeadContent fixed-top">
+<div class="homeHeadContent">
   <div class="navbar navbar-expand-lg navbar-light">
     <div class="navbar-brand">
-      <img src="<%= image_path "lendya-logo1.png" %>" alt="Lendya Logo" class="brand-logo">
+      <img src="<%= image_path "lendya-logo-yellow.png" %>" alt="Lendya Logo" class="brand-logo">
     </div>
     <div class="d-flex justify-content-end align-items-center m-4">
       <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-warning" %>
@@ -14,15 +14,21 @@
       <% end %>
     </div>
   </div>
-
   <div class="mainClaimText">
     <h1><strong>You own too many things?</strong></h1>
     <h1><strong>Rent it out from your neighborhood lenders!</strong></h1>
   </div>
-
   <div class="searchBar">
+
   </div>
 </div>
 
-<div class="videoContainer">
+<div class="overlay">
+  <video class="intro-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="<%= image_path "lendyaintro.mp4" %>" type="video/mp4">
+  </video>
+  <div class="overlay-text">
+    <h2>What do you need?</h2>
+    <%= link_to 'Browse', items_path, :class => "browse-button btn btn-warning"  %>
+  </div>
 </div>
