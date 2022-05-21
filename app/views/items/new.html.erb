@@ -21,7 +21,7 @@
       <div class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div class="centered"> <h2>Share your item with the community!</h2></div>
             <%= simple_form_for(@item) do |f| %>
-              <%= f.input :title, placeholder: "Name your item", :class => "input-field" %>
+              <%= f.input :title, placeholder: "Name your item", class: "form-inputs" %>
               <%= f.input :category, placeholder: "What's the category?", :class => "input-field" %>
               <%= f.input :price, placeholder: "What's the daily price?", :class => "input-field" %>
               <%= f.input :description, placeholder: "Provide some more info!", :class => "input-field" %>
@@ -36,8 +36,8 @@
                 Make sure that all information is correct!
                 </p>
               </div>
-              <div class="text-center upload-btn">
-                <%= f.button :submit, "Upload", class: "btn btn-warning nav-text" %>
+              <div class="text-center">
+                <%= f.button :submit, "Upload", class: "btn btn-warning upload-btn nav-text" %>
               </div>
           </div>
             <div class="centered">
