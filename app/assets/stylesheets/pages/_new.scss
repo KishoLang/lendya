@@ -12,9 +12,9 @@
   justify-content: center;
 }
 
-.upload-button {
+.upload-btn {
   color: white;
-  padding: 1px;
+  padding: 5px;
   margin: 2px 4px;
 }
 
@@ -22,6 +22,16 @@
 border-radius: 15px;
 }
 
-.input-field {
+.form-inputs {
+  background-color: white;
+}
+
+.form-inputs h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.form-upload {
   background-color: white;
 }

@@ -17,28 +17,29 @@
 </div>
 <div class="container py-5">
   <div class="row">
-    <div class="bordered col-12 col-md-6 offset-lg-3 justify-content-center bg-white p-5">
+    <div class="form-upload shadow-sm p-3 mb-5 bordered col-12 col-md-6 offset-lg-3 justify-content-center p-5">
       <div class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div class="centered"> <h2>Share your item with the community!</h2></div>
             <%= simple_form_for(@item) do |f| %>
-              <%= f.input :title, :class => "input-field" %>
-              <%= f.input :category %>
-              <%= f.input :price %>
-              <%= f.input :description %>
-              <%= f.input :condition %>
-              <%= f.input :delivery %>
-              <%= f.input :long_rental %>
-              <%= f.input :availability %>
-              <%# <%= f.input :photo, as: :file %>
+              <%= f.input :title, placeholder: "Name your item", :class => "input-field" %>
+              <%= f.input :category, placeholder: "What's the category?", :class => "input-field" %>
+              <%= f.input :price, placeholder: "What's the daily price?", :class => "input-field" %>
+              <%= f.input :description, placeholder: "Provide some more info!", :class => "input-field" %>
+              <%= f.input :condition, placeholder: "How would you describe the condition?", :class => "input-field" %>
+              <%= f.input :delivery, placeholder: "Can you deliver the item?", :class => "input-field" %>
+              <%= f.input :long_rental, :class => "input-field" %>
+              <%= f.input :availability, :class => "input-field" %>
+              <%= f.input :photo, as: :file, :class => "input-field" %>
 
-      <div><p class="text-center text-gray-500 text-xs">
-         Make sure that all information is correct!
-          </p>
-      </div>
-          <div class="text-center upload-button">
-            <%= f.button :submit, "Upload", class: "btn btn-warning nav-text" %>
+              <div>
+                <p class="text-center text-gray-500 text-xs">
+                Make sure that all information is correct!
+                </p>
+              </div>
+              <div class="text-center upload-btn">
+                <%= f.button :submit, "Upload", class: "btn btn-warning nav-text" %>
+              </div>
           </div>
-    </div>
             <div class="centered">
               <%= link_to 'Back', items_path %>
             </div>
