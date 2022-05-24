@@ -16,15 +16,15 @@
 
   <div class="show-container">
     <div class="flex-container">
-     <div class="flex-item-horizontal">
-      <div>
-        <h4><%= @item.title %></h4>
-      <div>
+      <div class="column-wrapper">
+        <div class="heading">
+          <h4><%= @item.title %></h4>
         <div class="show-picture">
           <h4>Placeholder Picture</h4>
         </div>
-      </div>
-      <div>
+        </div>
+
+      <h4>Details</h4>
         <div class="info-list-item">
           <h6>Category</h6>
           <p><%= @item.category %>
@@ -54,7 +54,7 @@
           <p><%= @item.description %></p>
         </div>
       </div>
-      <div class="flex-item-horizontal">
+      <div class="column-wrapper">
         <h4>Placeholder right side</h4>
       </div>
     </div>
