@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   def index
     if params[:query].present?
       @query = params[:query]
-      @items = Item.where("name ILIKE ?","%#{params[:query]}%")
+      @items = Item.where("title ILIKE ?", "%#{params[:query]}%")
       # Preventing SQL Injection and Database error for
       # unknown characters
     else
