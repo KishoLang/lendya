@@ -1,5 +1,5 @@
 // Specific CSS for your home-page
-.HomeHeadContent {
+.homeHeadContent {
   background-image: url(asset_path("things.jpg"));
   background-repeat: no-repeat;
   background-size: cover;
@@ -8,10 +8,30 @@
 }
 
 .mainClaimText {
+  font-size: 100;
   text-align: center;
   color: white;
   text-shadow: black 0px 0px 30px;
-  padding-top: 160px;
+  padding-top: 260px;
+}
+
+.container-search-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  display: inline-flex;
+  border: solid 2px $lendya-yellow;
+  border-radius: 4px;
+  padding: 3px;
+  background-color: $lendya-yellow;
+}
+
+.search-input {
+  background-color: white;
+  border: solid 2px white;
+  border-radius: 4px;
 }
 
 .overlay {
