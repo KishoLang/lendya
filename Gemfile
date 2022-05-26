@@ -72,3 +72,6 @@ gem 'cloudinary', '~> 1.16.0'
 
 # Faker
 gem 'faker'
+
+# Emojis
+gem 'rails_emoji_picker'
