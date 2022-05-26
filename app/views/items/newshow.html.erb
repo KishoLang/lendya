@@ -1,0 +1,200 @@
+    <div class="navbar navbar-expand-lg navbar-light">
+    <div class="navbar-brand">
+      <img src="<%= image_path "lendya-logo1.png" %>" alt="Lendya Logo" class="brand-logo">
+    </div>
+    <div class="d-flex justify-content-end align-items-center m-4">
+      <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-warning" %>
+      <% if user_signed_in? %>
+      <!--<%= current_user.email %>-->
+        <%= link_to 'SIGN OUT', destroy_user_session_path, method: 'delete', :class => "nav-text" %>
+      <% else %>
+        <%= link_to 'SIGN UP', new_user_registration_path, :class => "nav-text" %>
+        <%= link_to 'LOGIN', new_user_session_path, :class => "nav-text"%>
+      <% end %>
+    </div>
+  </div>
+
+<h4><%= @item.title %></h4>
+  <div class="show-container">
+    <div class="image-button">
+      <img src="https://www.berlin.de/binaries/asset/image_assets/6445311/source/1641281375/624x468/" alt="">
+        <div><a href="">Button</a></div>
+    </div>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora, quas placeat. Labore, culpa ab! Sequi maiores suscipit ratione minus accusantium quisquam. Officiis tempore, voluptatem illo qui nobis error quam eveniet!</p>
+  </div>
+        <!-- <div class="info-list-item">
+          <h6>Category</h6>
+          <p><%= @item.category %>
+        </div>
+        <div class="info-list-item">
+          <h6>Price per Day</h6>
+          <p><%= @item.price %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Condition</h6>
+          <p><%= @item.condition %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Delivery possible</h6>
+          <p><%= @item.delivery %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Long-Term rental possible</h6>
+          <p><%= @item.long_rental %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Available</h6>
+          <p><%= @item.availability %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Description</h6>
+          <p><%= @item.description %></p>
+        </div> -->
+      </div>
+      <div class="column-wrapper">
+        <h4>Placeholder right side</h4>
+          <div class="booking-btn centered">
+            <p><%= link_to "Confirm Booking", items_path, :class => "nav-button-lender btn btn-info"%></p>
+          </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="info-flex flex-item-shrink">
+        <div class="info-list-item">
+          <h6>Category</h6>
+          <p><%= @item.category %>
+        </div>
+        <div class="info-list-item">
+          <h6>Price per Day</h6>
+          <p><%= @item.price %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Condition</h6>
+          <p><%= @item.condition %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Delivery possible</h6>
+          <p><%= @item.delivery %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Long-Term rental possible</h6>
+          <p><%= @item.long_rental %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Available</h6>
+          <p><%= @item.availability %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Description</h6>
+          <p><%= @item.description %></p>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+    <div class="navbar navbar-expand-lg navbar-light">
+    <div class="navbar-brand">
+      <img src="<%= image_path "lendya-logo1.png" %>" alt="Lendya Logo" class="brand-logo">
+    </div>
+    <div class="d-flex justify-content-end align-items-center m-4">
+      <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-warning" %>
+      <% if user_signed_in? %>
+      <!--<%= current_user.email %>-->
+        <%= link_to 'SIGN OUT', destroy_user_session_path, method: 'delete', :class => "nav-text" %>
+      <% else %>
+        <%= link_to 'SIGN UP', new_user_registration_path, :class => "nav-text" %>
+        <%= link_to 'LOGIN', new_user_session_path, :class => "nav-text"%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="show-container">
+    <div class="flex-container">
+      <div class="column-wrapper">
+        <div class="heading">
+          <h4><%= @item.title %></h4>
+        <div class="show-picture">
+          <h4>Placeholder Picture</h4>
+        </div>
+        </div>
+        <div class="heading">
+          <h4>Details</h4>
+          </div>
+        <!-- <div class="info-list-item">
+          <h6>Category</h6>
+          <p><%= @item.category %>
+        </div>
+        <div class="info-list-item">
+          <h6>Price per Day</h6>
+          <p><%= @item.price %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Condition</h6>
+          <p><%= @item.condition %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Delivery possible</h6>
+          <p><%= @item.delivery %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Long-Term rental possible</h6>
+          <p><%= @item.long_rental %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Available</h6>
+          <p><%= @item.availability %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Description</h6>
+          <p><%= @item.description %></p>
+        </div> -->
+      </div>
+      <div class="column-wrapper">
+        <h4>Placeholder right side</h4>
+          <div class="booking-btn centered">
+            <p><%= link_to "Confirm Booking", items_path, :class => "nav-button-lender btn btn-info"%></p>
+          </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="info-flex flex-item-shrink">
+        <div class="info-list-item">
+          <h6>Category</h6>
+          <p><%= @item.category %>
+        </div>
+        <div class="info-list-item">
+          <h6>Price per Day</h6>
+          <p><%= @item.price %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Condition</h6>
+          <p><%= @item.condition %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Delivery possible</h6>
+          <p><%= @item.delivery %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Long-Term rental possible</h6>
+          <p><%= @item.long_rental %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Available</h6>
+          <p><%= @item.availability %></p>
+        </div>
+        <div class="info-list-item">
+          <h6>Description</h6>
+          <p><%= @item.description %></p>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+    </div>
