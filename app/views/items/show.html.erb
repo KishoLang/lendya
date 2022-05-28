@@ -1,9 +1,9 @@
-    <div class="navbar navbar-expand-lg navbar-light">
+<div class="navbar navbar-expand-lg navbar-light">
     <div class="navbar-brand">
-      <img src="<%= image_path "lendya-logo1.png" %>" alt="Lendya Logo" class="brand-logo">
+      <img src="<%= image_path "lendya-logo-yellow.png" %>" alt="Lendya Logo" class="brand-logo">
     </div>
     <div class="d-flex justify-content-end align-items-center m-4">
-      <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-warning" %>
+      <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-info" %>
       <% if user_signed_in? %>
       <!--<%= current_user.email %>-->
         <%= link_to 'SIGN OUT', destroy_user_session_path, method: 'delete', :class => "nav-text" %>
@@ -12,13 +12,18 @@
         <%= link_to 'LOGIN', new_user_session_path, :class => "nav-text"%>
       <% end %>
     </div>
-  </div>
+</div>
 
 <div class="heading">
       <h4><%= @item.title %></h4>
  <div class="show-container">
     <div class="image-button">
-      <img src="https://www.berlin.de/binaries/asset/image_assets/6445311/source/1641281375/624x468/" alt="">
+      <% if @item.photo.key.nil? %>
+        <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332" alt="">
+      <% else %>
+        <%= cl_image_tag @item.photo.key, class: "item-img" %>
+      <% end %>
+
         <div><%= link_to "Confirm Booking", items_path, :class => "booking-btn btn btn-info"%></div>
     </div>
   </div>
