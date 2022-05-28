@@ -1,5 +1,78 @@
+
+
 .dashboard-outline {
   display: flex;
-  padding-top: 200px;
+  padding-top: 50px;
   padding-left: 50px;
+  background-color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-radius: 20px;
+  height: 500px;
+
+  h4 {
+    text-align: start;
+  }
+}
+
+.dashboard-header {
+  font-size: 70px;
+  text-align: center;
+  color: white;
+  text-shadow: black 0px 0px 30px;
+  padding-top: 120px;
+  padding-left: 50px;
+  height: 100%;
+}
+
+.bookings-column {
+width: 350px;
+margin-bottom: 30px;
+height: 350px;
+overflow: scroll;
+}
+
+.booking-list-item {
+  padding-top: 10px;
+  border-bottom: 0.5px solid lightslategrey;
+  border-top: 0.5px solid lightslategrey;
+  border-right: 0.5px solid lightslategrey;
+  border-radius: 10px;
+
+  h6 {
+    margin-bottom: 0px;
+    padding-left: 10px;
+  }
+
+  p {
+    font-size: 10px;
+    margin-bottom: 0px;
+    padding-left: 10px;
+  }
+
+}
+
+.chat-window {
+  text-align: center;
+  width: 100%;
+  padding-left: 70px;
+
+  .info-box {
+    text-align: start;
+  }
+
+  p {
+    font-size: 14px;
+
+  }
+}
+
+.button-group {
+  display: flex;
+  margin-top: 30px;
+  color: white;
+}
+
+.sized {
+  width: 200px;
 }
