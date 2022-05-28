@@ -28,9 +28,9 @@
 </div>
 
 
-<%= link_to item_path(@items) do %>
-  <div class="cards">
-    <% @items.each do |item| %>
+<div class="cards">
+  <% @items.each do |item| %>
+    <%= link_to item_path(item) do %>
       <div class="item-card">
         <div class="item-card-image">
           <% if item.photo.key.nil? %>
@@ -55,8 +55,8 @@
         </div>
       </div>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 
 
