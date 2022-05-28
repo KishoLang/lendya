@@ -13,3 +13,23 @@
       <% end %>
     </div>
 </div>
+
+<%# <% @bookings.each do |booking|
+<%# <%= p booking  %>
+  <%# <div class="item-card">
+<%# <% end %>
+
+<div class="dashboard-outline">
+  <div class="bookings-column">
+    <% @bookings.each do |booking| %>
+     <div class="booking-list-item">
+      <h6><%= booking.start_date%></h6>
+      <p>Click here to chat with the owner!</p>
+    </div>
+    <% end %>
+  </div>
+  <div class="chat-window">
+    <h4>placeholder</h4>
+  </div>
+
+</div>

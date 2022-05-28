@@ -6,8 +6,8 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:item_id])
     @booking = Booking.find(params[:id])
+    @item = @booking.item
   end
 
   def new
@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.item = Item.find(params[:item_id])
     if @booking.save
-      redirect_to item_booking_path(@booking.item, @booking.id)
+      redirect_to booking_path(@booking)
     end
   end
 
