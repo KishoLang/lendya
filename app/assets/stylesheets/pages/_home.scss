@@ -1,6 +1,7 @@
 // Specific CSS for your home-page
 .homeHeadContent {
-  background-image: url(asset_path("things.jpg"));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(asset_path("things.jpg"));
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -8,11 +9,13 @@
 }
 
 .mainClaimText {
-  font-size: 100;
   text-align: center;
   color: white;
   text-shadow: black 0px 0px 30px;
   padding-top: 260px;
+  p {
+    font-size: 30px;
+  }
 }
 
 .container-search-bar {
@@ -37,6 +40,47 @@
 .product-info-container {
   background-color: white;
   height: 100vh;
+  text-align: center;
+}
+
+.product-info-header {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  h2 {
+    color: black;
+  }
+}
+
+.product-info-cards-container {
+  display: flex;
+  justify-content: center;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  .card {
+    background-color: $lendya-yellow;
+    color: white;
+    border-radius: 5px;
+  }
+
+  .card-body {
+    // border: 2px solid white;
+    // border-radius: 5px;
+  }
+
+  h5 {
+    text-decoration: underline;
+  }
+}
+
+.product-card-ill {
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .overlay {
