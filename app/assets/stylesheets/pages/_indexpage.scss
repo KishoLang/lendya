@@ -44,6 +44,11 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 16px;
   margin: 0 40px;
+  & :hover {
+    border: 2px outset $lendya-yellow;
+    color: $lendya-yellow;
+    background: #fff;
+  }
 }
 
 .item-card-image > img {
@@ -62,6 +67,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  pointer-events: none;
 }
 
 .item-card-actions {
@@ -72,6 +78,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 
 .margin-top-negative {
@@ -81,13 +88,39 @@
   margin-bottom: 0;
 }
 
-.card-item-pricing {
+//.card-item-pricing {
   //display: flex;
   //justify-content: end;
   //align-items: center;
+  //padding: 18px;
+  //display: flex;
+  //justify-content: end;
+  //align-items: flex-end;
+  //position: relative;
+//}
+
+.card-item-pricing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 18px;
   display: flex;
-  justify-content: end;
   align-items: flex-end;
   position: relative;
+  pointer-events: none;
+}
+
+.rate i {
+  color: $lendya-yellow;
+  pointer-events: none;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+.card-item-pricing p{
+  padding-right: 120px;
+  font-size: 14px;
 }
