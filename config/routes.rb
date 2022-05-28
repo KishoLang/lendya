@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get "dashboard", to: "dashboard#show"
   resources :bookings, only: [:show, :delete]
   resources :messages, only: [:show]
   resources :reviews, only: [:show, :delete]
