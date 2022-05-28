@@ -25,6 +25,10 @@
   margin: 0;
 }
 
+.card-item-pricing span{
+  font-size: 14px;
+}
+
 .item-card .btn {
   //background-color: $tomato-red;
 }
@@ -44,12 +48,20 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 16px;
   margin: 0 40px;
+  text-decoration: none;
   & :hover {
     border: 2px outset $lendya-yellow;
     color: $lendya-yellow;
     background: #fff;
+    opacity: 0.9;
+  }
+  a {
+    text-decoration: none;
+    color: black !important;
   }
 }
+
+
 
 .item-card-image > img {
   //height: 180px;
@@ -113,14 +125,4 @@
 .rate i {
   color: $lendya-yellow;
   pointer-events: none;
-}
-
-a:link {
-  text-decoration: none;
-  color: black;
-}
-
-.card-item-pricing p{
-  padding-right: 120px;
-  font-size: 14px;
 }

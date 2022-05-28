@@ -28,35 +28,37 @@
 </div>
 
 
-<%= link_to item_path(@items) do %>
-  <div class="cards">
-    <% @items.each do |item| %>
-      <div class="item-card">
-        <div class="item-card-image">
-          <% if item.photo.key.nil? %>
-          <% else %>
-            <%= cl_image_tag item.photo.key, class: "item-avatar" %>
-          <% end %>
-        </div>
-        <div class="card-item-content">
-          <h2><%= item.title %></h2>
-          <p><%= item.category %></p>
-        </div>
-        <div class="card-item-pricing">
-          <div class="rate">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-            <p>(12)</p>
-            <h2><%= item.price %> € / hour</h2>
-        </div>
+<div class="cards">
+  <% @items.each do |item| %>
+    <div class="item-card">
+      <%= link_to  item_path(item) do %>
+      <div class="item-card-image">
+        <% if item.photo.key.nil? %>
+        <% else %>
+          <%= cl_image_tag item.photo.key, class: "item-avatar" %>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-<% end %>
+      <div class="card-item-content">
+        <h2><%= item.title %></h2>
+        <p><%= item.category %></p>
+      </div>
+      <div class="card-item-pricing">
+        <div class="rate">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <span>(12)</span>
+        </div>
+
+          <h2><%= item.price %> € / hour</h2>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
 
 
 
