@@ -16,7 +16,7 @@
   </div>
   <div class="mainClaimText">
     <h1><strong>No need to buy - We lendya anything</strong></h1>
-    <h2><strong>Rent from reviewed neighborhood lenders</strong></h2>
+    <p>Rent from reviewed neighborhood lenders</p>
   </div>
   <div class="container-search-bar">
    <%= form_tag items_path, :class => "search-bar", method: :get do %>
@@ -31,7 +31,32 @@
 </div>
 
 <div class="product-info-container">
-
+  <div class="product-info-header">
+    <h2>Three reasons to rent with lendya</h2>
+  </div>
+  <div class="product-info-cards-container">
+    <div class="card d-inline-flex p-2 m-2 text-center" style="width: 30rem;">
+      <img class="product-card-img" src="<%= image_path "nature.jpg" %>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">It's eco friendly</h5>
+          <p class="card-text">Our planet needs a break from over production! Make a small contribution to help our environment</p>
+      </div>
+    </div>
+    <div class="card d-inline-flex p-2 m-2 text-center" style="width: 30rem;">
+      <img class="product-card-img" src="<%= image_path "moneypig.jpg" %>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Save money</h5>
+          <p class="card-text">We buy and own to many things we actually don't need! Save some money by renting</p>
+      </div>
+    </div>
+    <div class="card d-inline-flex p-2 m-2 text-center" style="width: 30rem;">
+      <img class="product-card-img" src="<%= image_path "idea.jpg" %>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Get inspired</h5>
+          <p class="card-text">Not sure if a product is right for you? Get inspired, fall in love and return it if it's not for you</p>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="overlay">
   <video class="intro-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
