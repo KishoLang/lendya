@@ -74,3 +74,6 @@ gem 'faker'
 
 # Emojis
 gem 'rails_emoji_picker'
+
+#Geocoding
+gem "geocoder"
