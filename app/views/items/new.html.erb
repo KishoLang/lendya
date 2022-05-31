@@ -23,10 +23,10 @@
           <div class="centered"> <h2>Share your item with the community!</h2></div>
             <%= simple_form_for(@item) do |f| %>
               <%= f.input :title, placeholder: "Name your item", class: "form-inputs" %>
-              <%= f.input :category, placeholder: "What's the category?", :class => "input-field" %>
+              <%= f.input :category, collection: Item::CATEGORIES, placeholder: "What's the category?", :class => "input-field" %>
               <%= f.input :price, placeholder: "What's the daily price?", :class => "input-field" %>
               <%= f.input :description, placeholder: "Provide some more info!", :class => "input-field" %>
-              <%= f.input :condition, placeholder: "How would you describe the condition?", :class => "input-field" %>
+              <%= f.input :condition, collection: Item::CONDITIONS, placeholder: "How would you describe the condition?", :class => "input-field" %>
               <%= f.input :delivery, placeholder: "Can you deliver the item?", :class => "input-field" %>
               <%= f.input :long_rental, :class => "input-field" %>
               <%= f.input :availability, :class => "input-field" %>
