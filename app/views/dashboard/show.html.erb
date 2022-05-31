@@ -1,0 +1,61 @@
+<div class="navbar navbar-expand-lg navbar-light">
+    <div class="navbar-brand">
+      <img src="<%= image_path "lendya-logo-yellow.png" %>" alt="Lendya Logo" class="brand-logo">
+    </div>
+    <div class="d-flex justify-content-end align-items-center m-4">
+      <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-info" %>
+      <% if user_signed_in? %>
+      <!--<%= current_user.email %>-->
+        <%= link_to 'SIGN OUT', destroy_user_session_path, method: 'delete', :class => "nav-text" %>
+      <% else %>
+        <%= link_to 'SIGN UP', new_user_registration_path, :class => "nav-text" %>
+        <%= link_to 'LOGIN', new_user_session_path, :class => "nav-text"%>
+      <% end %>
+    </div>
+</div>
+
+<%# <% @bookings.each do |booking|
+<%# <%= p booking  %>
+  <%# <div class="item-card">
+<%# <% end %>
+
+<div class="dashboard-header"> Your Bookings </div>
+
+<div class="dashboard-outline">
+  <div class="bookings-column">
+    <% @bookings.each do |booking| %>
+     <div class="booking-list-item">
+      <h6>Item-Title</h6>
+      <p>Send a new message to name</p>
+    </div>
+    <% end %>
+  </div>
+  <div class="chat-window">
+    <div class="info-box">
+      <h4> Your Booking</h4>
+
+      <h6>Booking Details</h6>
+      <p>Item Name: <%#<%= @booking.item.title %> </p>
+      <p>Item Price:<%# <%#<%= booking.item.price %></p>
+      <p>Start Date: <%#<%= booking.item.start_date %></p>
+      <p>End Date:<%#<%= booking.item.end_date %></p>
+    </div>
+
+    <div class="button-group justify-content-center align-items-center m-4">
+    <div> <%= link_to 'Rate Booking', root_path, :class => "nav-button-lender btn btn-info sized" %>
+    </div>
+    <div> <%= link_to 'Cancel Booking', root_path, :class => "nav-button-lender btn btn-info sized" %>
+    </div>
+    </div>
+
+    <div class="button-group justify-content-center align-items-center m-4">
+    <div> <%= link_to 'Find more Items', items_path, :class => "nav-button-lender btn btn-info sized" %>
+    </div>
+    <div> <%= link_to 'Return to Home', root_path, :class => "nav-button-lender btn btn-info sized" %>
+    </div>
+    </div>
+
+    </div>
+  </div>
+
+</div>
