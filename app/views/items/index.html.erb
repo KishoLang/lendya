@@ -1,4 +1,5 @@
-<div class="navbar navbar-expand-lg navbar-light">
+<div class="bg">
+  <div class="navbar navbar-expand-lg navbar-light">
     <div class="navbar-brand">
       <img src="<%= image_path "lendya-logo-yellow.png" %>" alt="Lendya Logo" class="brand-logo">
     </div>
@@ -12,55 +13,49 @@
         <%= link_to 'LOGIN', new_user_session_path, :class => "nav-text"%>
       <% end %>
     </div>
-</div>
-
-
-<div class="container-number-items">
-  <div class="text-center p-2">
-    <div class="col">
-      <% if @query %>
-        <p>You searched for <strong><%= @query %></strong>. We found <%= @items.count %> items out of our <%= Item.count %> on our website.</p>
-      <% else %>
-        <p>All <%= Item.count %> items</p>
-      <% end %>
-    </div>
   </div>
-</div>
 
 
-<div class="cards">
-  <% @items.each do |item| %>
-    <div class="item-card">
-      <%= link_to  item_path(item) do %>
-      <div class="item-card-image">
-        <% if item.photo.key.nil? %>
+  <div class="container-number-items">
+    <div class="text-center p-2">
+      <div class="col">
+        <% if @query %>
+          <p>You searched for <strong><%= @query %></strong>. We found <%= @items.count %> items out of our <%= Item.count %> on our website.</p>
         <% else %>
-          <%= cl_image_tag item.photo.key, class: "item-avatar" %>
+          <p>All <%= Item.count %> items</p>
         <% end %>
       </div>
-      <div class="card-item-content">
-        <h2><%= item.title %></h2>
-        <p><%= item.category %></p>
-      </div>
-      <div class="card-item-pricing">
-        <div class="rate">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="far fa-star"></i>
-          <span>(12)</span>
-        </div>
-        <h2><%= item.price %> € / hour</h2>
-      </div>
-      <% end %>
     </div>
-  <% end %>
+  </div>
+
+  <div class="cards">
+    <% @items.each do |item| %>
+      <div class="item-card">
+        <%= link_to  item_path(item) do %>
+        <div class="item-card-image">
+          <% if item.photo.key.nil? %>
+          <% else %>
+            <%= cl_image_tag item.photo.key, class: "item-avatar" %>
+          <% end %>
+        </div>
+        <div class="card-item-content">
+          <h2><%= item.title %></h2>
+          <p><%= item.category %></p>
+        </div>
+        <div class="card-item-pricing">
+          <div class="rate">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <span>(12)</span>
+          </div>
+          <h2><%= item.price %> € / hour</h2>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <h3 class="text-center"><%= link_to "Go back", root_path, :class => "btn btn-link" %></h3>
 </div>
-
-
-
-
-
-
-<h3 class="text-center"><%= link_to "Go back", root_path, :class => "btn btn-link" %></h3>
