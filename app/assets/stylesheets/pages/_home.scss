@@ -38,25 +38,29 @@
 }
 
 .product-info-container {
-  background-color: white;
-  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(asset_path("lightbokebg.jpg"));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 200vh;
   text-align: center;
 }
 
 .product-info-header {
-  background-color: white;
   display: flex;
   justify-content: center;
   padding-top: 120px;
   padding-bottom: 120px;
 
-  h2 {
-    color: black;
+  h1 {
+    color: white;
   }
 }
 
 .product-info-cards-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding-left: 30px;
   padding-right: 30px;
@@ -65,11 +69,6 @@
     background-color: $lendya-yellow;
     color: white;
     border-radius: 5px;
-  }
-
-  .card-body {
-    // border: 2px solid white;
-    // border-radius: 5px;
   }
 
   h5 {
@@ -84,23 +83,25 @@
 }
 
 .overlay {
-  position: relative;
+  // height: 100vh;
+  margin-top: 35vh;
   text-align: center;
-  height: 100vh;
 }
 
 .intro-video {
-  z-index: -1;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+  border: 10px solid $lendya-yellow;
+  border-radius: 5px;
+  height: 65%;
+  width: 65%;
+}
+
+.overlay-text-container {
+  display: flex;
+  justify-content: center;
 }
 
 .overlay-text {
-  padding: 100px;
+  padding-top: 5vh;
 }
 .overlay h2 {
   color: white;
@@ -109,6 +110,5 @@
 
 .browse-button {
   color: white;
-  padding: 8px;
   margin: 2px 16px;
 }
