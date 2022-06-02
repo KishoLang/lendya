@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
       redirect_to booking_path(@booking)
     else
       render "bookings/show"
+    end
   end
 
   private
