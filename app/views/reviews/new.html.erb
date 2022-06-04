@@ -1,3 +1,31 @@
+
+<div class="container py-5">
+  <div class="row">
+    <div class="form-upload shadow-sm p-3 mb-5 bordered col-12 col-md-6 offset-lg-3 justify-content-center p-5">
+      <div class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="centered"> <h2>Write a review for: <%= @booking.item.title %></h2></div>
+          <div class="review-card">
+            <div class="review-card-image">
+              <% if @booking.item.photo.key.nil? %>
+              <% else %>
+                <%= cl_image_tag @booking.item.photo.key, class: "item-avatar" %>
+              <% end %>
+            </div>
+          </div>
+        <%= simple_form_for([ @booking, @review ]) do |f| %>
+          <%= f.input :rating, collection: 0..5 %>
+          <%= f.input :content %>
+          <div class="centered">
+            <%= f.submit class: 'form-actions nav-button-lender btn btn-info' %>
+          </div>
+        <% end %>
+        <div class="centered">
+          <%= link_to "Back to Dashboard", dashboard_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <h1>Write a review for <%= @booking.item.title %></h1>
 <%= simple_form_for([ @booking, @review ]) do |f| %>
         <%= f.input :rating, collection: 0..5 %>
@@ -5,3 +33,4 @@
         <%= f.submit class: 'btn booking-btn' %>
       <% end %>
       <%= link_to "See all bookings", items_path %>
+
