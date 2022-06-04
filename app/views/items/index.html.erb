@@ -44,12 +44,8 @@
         </div>
         <div class="card-item-pricing">
           <div class="rate">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <span>(12)</span>
+          <%= sanitize item.stars %>
+          <span>(<%= item.average %>)</span>
           </div>
           <h2><%= item.price %> € / hour</h2>
         </div>
