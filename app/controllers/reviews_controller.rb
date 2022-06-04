@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
   end
+
   def new
     @booking = Booking.find(params[:booking_id])
     @review = Review.new
@@ -12,7 +13,7 @@ class ReviewsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
     @review.booking = @booking
-    if @review.save
+    if @review.save!
       redirect_to booking_path(@booking)
     else
       render "bookings/show"
