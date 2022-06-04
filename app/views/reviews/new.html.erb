@@ -1,6 +1,7 @@
-<%= simple_form_for [@booking, @review] do |f| %>
+<h1>Write a review for <%= @booking.item.title %></h1>
+<%= simple_form_for([ @booking, @review ]) do |f| %>
         <%= f.input :rating, collection: 0..5 %>
         <%= f.input :content%>
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>
-      <%= link_to "See all restaurants", bookings_path %>
+<%= link_to "Back to Dashboard", dashboard_path %>
