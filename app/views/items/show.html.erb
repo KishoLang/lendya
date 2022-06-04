@@ -1,4 +1,5 @@
-<div class="navbar navbar-expand-lg navbar-light">
+<div class="bg-show">
+  <div class="navbar navbar-expand-lg navbar-light">
     <div class="navbar-brand">
       <img src="<%= image_path "lendya-logo-yellow.png" %>" alt="Lendya Logo" class="brand-logo">
     </div>
@@ -12,55 +13,66 @@
         <%= link_to 'LOGIN', new_user_session_path, :class => "nav-text"%>
       <% end %>
     </div>
-</div>
-
-<div class="heading">
-      <h4><%= @item.title %></h4>
- <div class="show-container">
-    <div class="image-button">
-      <% if @item.photo.key.nil? %>
-        <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332" alt="">
-      <% else %>
-        <%= cl_image_tag @item.photo.key, class: "item-img" %>
-      <% end %>
-
-        <div><%= link_to "Confirm Booking", item_bookings_path(@item), method: :post, :class => "booking-btn btn btn-info"%></div>
-    </div>
   </div>
-<div class="details-box">
-  <h4>Details</h4>
-      <div class="info-flex">
-        <div class="info-list-item">
-          <h6>Category</h6>
-          <p><%= @item.category %>
+
+  <div class="show-container">
+    <div class="item-show-container">
+      <div class="item-show-header">
+        <h4><%= @item.title %></h4>
+        <div class="item-header-info">
+          <div class="rate">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <span> &#183; 12 Reviews &#183; Berlin, Germany</span>
+          </div>
         </div>
-        <div class="info-list-item">
-          <h6> € Price/ Day</h6>
-          <p><%= @item.price %></p>
+        <div class="item-show-img">
+          <% if @item.photo.key.nil? %>
+            <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332" alt="">
+          <% else %>
+            <%= cl_image_tag @item.photo.key, class: "item-img" %>
+          <% end %>
         </div>
-        <div class="info-list-item">
-          <h6>Condition</h6>
-          <p><%= @item.condition %></p>
+      </div>
+      <div class="item-description">
+        <h6>Description</h6>
+        <p><%= @item.description %></p>
+      </div>
+      <div class="item-extras">
+        <div class="list-item">
+          <h6>Long-Term Rental</h6>
+          <p><%= @item.long_rental %></p>
         </div>
-        <div class="info-list-item">
+        <div class="list-item">
           <h6>Delivery</h6>
           <p><%= @item.delivery %></p>
         </div>
-        <div class="info-list-item">
-          <h6>Long-Term Rental </h6>
-          <p><%= @item.long_rental %></p>
-        </div>
-        <div class="info-list-item">
-          <h6>Available</h6>
-          <p><%= @item.availability %></p>
-        </div>
-      </div>
-
-      <div class="info-flex-description">
-        <div class="info-list-item">
-          <h6>Description</h6>
-          <p><%= @item.description %></p>
-        </div>
       </div>
     </div>
+    <div class="booking-confirm-container">
+      <div class="item-show-price">
+        <p><%= @item.price %>€ / day</p>
+      </div>
+      <div class="rental-days">
+        <span>Start Day - End Day</span>
+      </div>
+      <div class="booking-button">
+        <%= link_to "Confirm Booking", item_bookings_path(@item), method: :post, :class => "booking-btn btn btn-info"%>
+      </div>
+      <div class="price-calculation">
+        <span><%= @item.price %> x 3 days =    <% price = @item.price * 3 %> <%= price %> €</span>
+        <span>Service fee = 3 €</span>
+        <span>Total = <%= price + 3 %> €</span>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
 </div>
