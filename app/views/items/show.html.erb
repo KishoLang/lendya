@@ -69,20 +69,42 @@
       </div>
     </div>
     <div class="middle-breaker-container"></div>
-    <div class="booking-confirm-container">
-      <div class="item-show-price">
-        <p><%= @item.price %>€ / day</p>
-      </div>
-      <div class="rental-days">
-        <span>Start Day - End Day</span>
-      </div>
-      <div class="booking-button">
-        <%= link_to "Confirm Booking", item_bookings_path(@item), method: :post, :class => "booking-btn btn btn-info"%>
-      </div>
-      <div class="price-calculation">
-        <span><%= @item.price %> x 3 days =    <% price = @item.price * 3 %> <%= price %> €</span>
-        <span>Service fee = 3 €</span>
-        <span>Total = <%= price + 3 %> €</span>
+    <div class="booking-confirm-outer-container">
+      <div class="booking-confirm-inner-container">
+        <div class="item-show-price">
+          <p class="price-per-day"><%= @item.price %>€ / day</p>
+        </div>
+        <div class="rental-days">
+          <span>Start Day - End Day</span>
+        </div>
+        <div class="booking-button">
+          <%= link_to "Confirm Booking", item_bookings_path(@item), method: :post, :class => "btn"%>
+        </div>
+        <div class="price-calculation-days row">
+          <div class="col-sm">
+          <p class="price-title"><%= @item.price %> € x 3 days</p>
+          </div>
+          <div class="col-sm">
+            <p class="price-number"><% price = @item.price * 3 %> <%= price %> €</p>
+          </div>
+        </div>
+        <div class="price-service-fee row">
+          <div class="col-sm">
+          <p class="price-title">Service fee</p>
+          </div>
+          <div class="col-sm">
+            <p class="price-number">3 €</p>
+          </div>
+        </div>
+        <div class="price-calculation-total row">
+          <div class="col-sm">
+            <p class="price-total"><strong>Total</strong></p>
+          </div>
+          <div class="col-sm">
+            <p class="price-number"><strong><%= price + 3 %> €</strong></p>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </div>

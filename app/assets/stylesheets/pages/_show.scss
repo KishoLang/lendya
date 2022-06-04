@@ -47,6 +47,58 @@
   width: 10vw;
 }
 
-.booking-confirm-container {
-  padding-top: 10vh;
+.booking-confirm-outer-container {
+  padding-top: 10.5vh;
+
+  .booking-confirm-inner-container {
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+    width: 20vw;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px grey;
+  }
+
+  .price-per-day {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 25px;
+    text-align: left;
+  }
+
+  .rental-days {
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: $lendya-yellow;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .booking-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid white;
+    display: inline-block;
+    background-color: $lendya-yellow;
+  }
+
+  .price-title {
+    text-decoration: underline;
+    text-align: left;
+    margin-left: 10px;
+  }
+
+  .price-number {
+    text-align: right;
+    margin-right: 10px;
+  }
+
+  .price-total {
+    text-align: left;
+    margin-left: 10px;
+  }
+
+  .price-calculation-total {
+    font-size: 20px;
+  }
 }
