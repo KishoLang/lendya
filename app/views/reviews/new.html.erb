@@ -1,4 +1,6 @@
-<%= simple_form_for [ @booking, @review ] do |f| %>
-  <%= f.input :content , placeholder: "Tell us about your experience"%>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+<%= simple_form_for [@booking, @review] do |f| %>
+        <%= f.input :rating, collection: 0..5 %>
+        <%= f.input :content%>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+      <%= link_to "See all restaurants", bookings_path %>
