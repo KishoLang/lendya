@@ -6,3 +6,47 @@
   background-position: center;
   height: 100vh;
 }
+
+.show-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
+
+  .available-text {
+    display: inline-block;
+    background-color: $success;
+    border: 2px solid $success;
+    border-radius: 5px;
+    padding: 0px 6px;
+  }
+
+  .not-available-text {
+    display: inline-block;
+    background-color: $tomato-red;
+    border: 2px solid $tomato-red;
+    border-radius: 5px;
+    padding: 0px 6px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    object-fit: cover;
+    object-position: bottom;
+    border: 4px solid $lendya-yellow;
+    border-radius: 5px;
+  }
+
+  .item-description {
+    padding-top: 50px;
+  }
+}
+
+.middle-breaker-container {
+  width: 10vw;
+}
+
+.booking-confirm-container {
+  padding-top: 10vh;
+}

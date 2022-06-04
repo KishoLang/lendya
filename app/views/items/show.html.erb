@@ -28,30 +28,47 @@
             <i class="far fa-star"></i>
             <span> &#183; 12 Reviews &#183; Berlin, Germany</span>
           </div>
+            <% if @item.availability == true %>
+            <p class="available-text">The <strong><%= @item.title %></strong> is availabe! Go rent it!</p>
+            <% else %>
+            <p class="not-available-text">The <strong><%= @item.title %></strong> is currently not available!</p>
+            <% end %>
         </div>
-        <div class="item-show-img">
-          <% if @item.photo.key.nil? %>
-            <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332" alt="">
-          <% else %>
-            <%= cl_image_tag @item.photo.key, class: "item-img" %>
-          <% end %>
-        </div>
+        <% if @item.photo.key.nil? %>
+          <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332" alt="">
+        <% else %>
+          <%= cl_image_tag @item.photo.key, class: "item-img" %>
+        <% end %>
       </div>
       <div class="item-description">
         <h6>Description</h6>
-        <p><%= @item.description %></p>
+        <% if !@item.description.empty? %>
+          <p><%= @item.description %></p>
+        <% else %>
+          <p>The owner hasn't provided a desciption yet</p>
+        <% end %>
       </div>
       <div class="item-extras">
+        <% has_extras = false %>
+        <% if @item.long_rental || @item.delivery %>
+          <% has_extras = true %>
+        <% end %>
+        <% if has_extras == true %>
+          <h6>Extras:</h6>
+        <% end %>
         <div class="list-item">
-          <h6>Long-Term Rental</h6>
-          <p><%= @item.long_rental %></p>
+          <% if @item.long_rental == true %>
+            <p>&#x2705;	Owner accepts long rental</p>
+          <% end %>
         </div>
         <div class="list-item">
-          <h6>Delivery</h6>
-          <p><%= @item.delivery %></p>
+          <% if @item.delivery == true %>
+            <p>&#x2705;	Owner offers to deliver</p>
+          <% end %>
         </div>
       </div>
     </div>
+    <div class="middle-breaker-container"></div>
     <div class="booking-confirm-container">
       <div class="item-show-price">
         <p><%= @item.price %>€ / day</p>
