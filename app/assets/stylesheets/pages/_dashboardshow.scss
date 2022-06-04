@@ -43,13 +43,18 @@ overflow: scroll;
   h6 {
     margin-bottom: 0px;
     padding-left: 10px;
+    color: gray;
+    text-decoration: none;
+    justify-content: left;
   }
 
   p {
     font-size: 10px;
+    color: gray;
     margin-bottom: 0px;
     padding-left: 10px;
     text-decoration: none;
+    justify-content: left;
   }
 
 }
@@ -77,4 +82,31 @@ overflow: scroll;
 
 .sized {
   width: 200px;
+}
+
+
+.info-container {
+  display: flex;
+  padding-top: 35px;
+  background-color: white;
+  justify-content: space-around;
+  // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  width: 100%;
+
+  h6 {
+    text-decoration: none;
+    justify-content: left;
+    text-align: left;
+  }
+
+  p {
+    text-decoration: none;
+  align-items: flex-start;
+  text-align: left;
+  }
+
+
+  .booking-img {
+  width: 100px;
+  }
 }
