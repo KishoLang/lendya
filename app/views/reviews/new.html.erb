@@ -2,6 +2,6 @@
 <%= simple_form_for([ @booking, @review ]) do |f| %>
         <%= f.input :rating, collection: 0..5 %>
         <%= f.input :content%>
-        <%= f.submit class: 'btn btn-primary' %>
+        <%= f.submit class: 'btn booking-btn' %>
       <% end %>
-<%= link_to "Back to Dashboard", dashboard_path %>
+      <%= link_to "See all bookings", items_path %>
