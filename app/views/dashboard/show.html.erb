@@ -52,7 +52,7 @@
     </div>
 
     <div class="button-group justify-content-center align-items-center m-4">
-      <div> <%= link_to 'Rate Booking', new_item_booking_review_path(:item_id, :booking_id), :class => "nav-button-lender btn btn-info sized" %>
+      <div> <%= link_to 'Rate Booking', new_booking_review_path(@booking), :class => "nav-button-lender btn btn-info sized" %>
       </div>
       <div> <%= link_to 'Cancel Booking', booking_path(@booking), method: :delete, :class => "nav-button-lender btn btn-info sized" %>
       </div>
