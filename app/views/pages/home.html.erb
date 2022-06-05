@@ -1,3 +1,7 @@
+<!-- Load JS -->
+<%= javascript_pack_tag 'button_scroller', defer: true %>
+
+<!-- HTML -->
 <div class="homeHeadContent">
   <div class="navbar navbar-expand-lg navbar-light">
     <div class="navbar-brand">
@@ -7,6 +11,7 @@
       <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-info" %>
       <% if user_signed_in? %>
       <!--<%= current_user.email %>-->
+        <%= link_to 'MANAGE BOOKINGS', dashboard_path, :class => "nav-text" %>
         <%= link_to 'SIGN OUT', destroy_user_session_path, method: 'delete', :class => "nav-text" %>
       <% else %>
         <%= link_to 'SIGN UP', new_user_registration_path, :class => "nav-text" %>
@@ -74,4 +79,9 @@
     </div>
   </div>
 </div>
+
+<button type="button" class="btn btn-info btn-floating btn-lg" id="btn-back-to-top">
+  <i class="fas fa-arrow-up" style="color: white;"></i>
+</button>
+
 </div>

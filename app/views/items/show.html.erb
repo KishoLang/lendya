@@ -1,7 +1,9 @@
 <div class="bg-show">
   <div class="navbar navbar-expand-lg navbar-light">
     <div class="navbar-brand">
-      <img src="<%= image_path "lendya-logo-yellow.png" %>" alt="Lendya Logo" class="brand-logo">
+      <%= link_to root_path do %>
+      <%= image_tag "lendya-logo-yellow.png", class:"brand-logo" %>
+      <% end %>
     </div>
     <div class="d-flex justify-content-end align-items-center m-4">
       <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-info" %>
@@ -66,6 +68,9 @@
             <p>&#x2705;	Owner offers to deliver</p>
           <% end %>
         </div>
+      </div>
+      <div class="reviews">
+
       </div>
     </div>
     <div class="middle-breaker-container"></div>
