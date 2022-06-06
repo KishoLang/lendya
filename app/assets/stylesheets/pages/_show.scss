@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 200vh;
+  height: 100vh;
 }
 
 .show-container {
@@ -48,40 +48,68 @@
 }
 
 .booking-confirm-outer-container {
-  position: fixed;
-  top: 35vh;
-  right: 15vw;
+  padding-top: 11vh;
 
   .booking-confirm-inner-container {
     border: 4px solid $lendya-yellow;
     border-radius: 5px;
     background-color: transparent;
-    width: 20vw;
+    width: 25vw;
     text-align: center;
     box-shadow: 5px 5px 5px 5px grey;
   }
 
-  .price-per-day {
+  .checkout-header {
     margin-top: 10px;
     margin-left: 10px;
     font-size: 25px;
-    text-align: left;
+    color: white;
+    text-align: center;
   }
 
-  .rental-days {
-    border: 2px solid white;
-    border-radius: 5px;
-    background-color: $lendya-yellow;
+  .rental-inputs {
+    display: flex;
+    justify-content: center;
     margin-left: 40px;
     margin-right: 40px;
+    text-align: center;
+  }
+
+  .wrapper-input {
+    padding: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 4px solid white;
+    border-radius: 5px;
+    background-color: $lendya-yellow;
+  }
+
+  .date-label {
+    color: white;
+  }
+
+  .date-inputs {
+    width: 90px;
+    font-size: 15px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
   }
 
   .booking-button {
+    width: 455px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border: 2px solid white;
+    border: 4px solid white;
+    border-radius: 5px;
     display: inline-block;
     background-color: $lendya-yellow;
+
+    .btn {
+      color: white;
+      font-size: 25px;
+    }
   }
 
   .price-title {

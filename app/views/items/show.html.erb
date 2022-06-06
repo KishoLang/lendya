@@ -1,3 +1,7 @@
+<!-- Load JS -->
+<%= javascript_pack_tag 'calc_days', defer: true %>
+
+
 <div class="bg-show">
   <div class="navbar navbar-expand-lg navbar-light">
     <div class="navbar-brand">
@@ -77,20 +81,29 @@
     <div class="booking-confirm-outer-container">
       <div class="booking-confirm-inner-container">
         <div class="item-show-price">
-          <p class="price-per-day"><%= @item.price %>€ / day</p>
+          <p class="checkout-header">Checkout</p>
         </div>
-        <div class="rental-days">
-          <span>Start Day - End Day</span>
-        </div>
+          <% days_booked = 0 %>
+          <%= simple_form_for :booking do |f| %>
+          <%= f.error_notification %>
+          <div class="rental-inputs">
+            <div class="wrapper-input">
+              <%= f.input :pick_up, as: :date, start_year: Date.today.year, end_year: Date.today.year, discard_year: true, order:[:day, :month], input_html: { class: "date-inputs"}, label_html: { class: "date-label", id: "pick-up-day"}, required: false %>
+            </div>
+            <div class="wrapper-input">
+              <%= f.input :return, as: :date, start_year: Date.today.year, end_year: Date.today.year, discard_year: true, order:[:day, :month], input_html: { class: "date-inputs"}, label_html: { class: "date-label", id: "return-days"}, required: false%>
+            </div>
+          </div>
+          <% end %>
         <div class="booking-button">
           <%= link_to "Confirm Booking", item_bookings_path(@item), method: :post, :class => "btn"%>
         </div>
         <div class="price-calculation-days row">
           <div class="col-sm">
-          <p class="price-title"><%= @item.price %> € x 3 days</p>
+          <p class="price-title"><span id="item-price"><%= @item.price %></span> € x <span id="days"> 1 </span> days</p>
           </div>
           <div class="col-sm">
-            <p class="price-number"><% price = @item.price * 3 %> <%= price %> €</p>
+            <p class="price-number"><span id="item-price-between"> <%= @item.price %></span> €</p>
           </div>
         </div>
         <div class="price-service-fee row">
@@ -106,7 +119,7 @@
             <p class="price-total"><strong>Total</strong></p>
           </div>
           <div class="col-sm">
-            <p class="price-number"><strong><%= price + 3 %> €</strong></p>
+            <p class="price-number"><strong><span id="item-price-total"> <%= @item.price + 3 %> €</strong></p>
           </div>
         </div>
         </div>
