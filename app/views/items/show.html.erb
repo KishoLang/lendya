@@ -4,10 +4,22 @@
 
 <div class="bg-show">
   <div class="navbar navbar-expand-lg navbar-light">
-    <div class="navbar-brand">
-      <%= link_to root_path do %>
-      <%= image_tag "lendya-logo-yellow.png", class:"brand-logo" %>
-      <% end %>
+    <div class="logo-and-search">
+      <div class="navbar-brand">
+        <%= link_to root_path do %>
+        <%= image_tag "lendya-logo-yellow.png", class:"brand-logo" %>
+        <% end %>
+      </div>
+      <div class="container-search-bar non-home-search-bar" >
+        <%= form_tag items_path, :class => "search-bar", method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control search-input",
+          placeholder: "Do you need anything else?"
+        %>
+        <%= submit_tag "Search", class: "nav-button-lender btn btn-info", id: "search-button" %>
+        <% end %>
+      </div>
     </div>
     <div class="d-flex justify-content-end align-items-center m-4">
       <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-info" %>
