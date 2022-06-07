@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
   end
+
   def new
     @booking = Booking.find(params[:booking_id])
     @review = Review.new

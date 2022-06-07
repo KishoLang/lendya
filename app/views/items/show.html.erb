@@ -1,6 +1,25 @@
-<div class="navbar navbar-expand-lg navbar-light">
-    <div class="navbar-brand">
-      <img src="<%= image_path "lendya-logo-yellow.png" %>" alt="Lendya Logo" class="brand-logo">
+<!-- Load JS -->
+<%= javascript_pack_tag 'calc_days', defer: true %>
+
+
+<div class="bg-show">
+  <div class="navbar navbar-expand-lg navbar-light">
+    <div class="logo-and-search">
+      <div class="navbar-brand">
+        <%= link_to root_path do %>
+        <%= image_tag "lendya-logo-yellow.png", class:"brand-logo" %>
+        <% end %>
+      </div>
+      <div class="container-search-bar non-home-search-bar" >
+        <%= form_tag items_path, :class => "search-bar", method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control search-input",
+          placeholder: "Do you need anything else?"
+        %>
+        <%= submit_tag "Search", class: "nav-button-lender btn btn-info", id: "search-button" %>
+        <% end %>
+      </div>
     </div>
     <div class="d-flex justify-content-end align-items-center m-4">
       <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-info" %>
@@ -12,55 +31,111 @@
         <%= link_to 'LOGIN', new_user_session_path, :class => "nav-text"%>
       <% end %>
     </div>
-</div>
+  </div>
 
-<div class="heading">
-      <h4><%= @item.title %></h4>
- <div class="show-container">
-    <div class="image-button">
-      <% if @item.photo.key.nil? %>
-        <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332" alt="">
-      <% else %>
-        <%= cl_image_tag @item.photo.key, class: "item-img" %>
-      <% end %>
+  <div class="show-container">
+    <div class="item-show-container">
+      <div class="item-show-header">
+        <h4><%= @item.title %></h4>
+        <div class="item-header-info">
+          <div class="rate">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <span> &#183; 12 Reviews &#183; Berlin, Germany</span>
+          </div>
+            <% if @item.availability == true %>
+            <p class="available-text">The <strong><%= @item.title %></strong> is availabe! Go rent it!</p>
+            <% else %>
+            <p class="not-available-text">The <strong><%= @item.title %></strong> is currently not available!</p>
+            <% end %>
+        </div>
+        <% if @item.photo.key.nil? %>
+          <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332" alt="">
+        <% else %>
+          <%= cl_image_tag @item.photo.key, class: "item-img" %>
+        <% end %>
+      </div>
+      <div class="item-description">
+        <h6>Description</h6>
+        <% if !@item.description.empty? %>
+          <p><%= @item.description %></p>
+        <% else %>
+          <p>The owner hasn't provided a desciption yet</p>
+        <% end %>
+      </div>
+      <div class="item-extras">
+        <% has_extras = false %>
+        <% if @item.long_rental || @item.delivery %>
+          <% has_extras = true %>
+        <% end %>
+        <% if has_extras == true %>
+          <h6>Extras:</h6>
+        <% end %>
+        <div class="list-item">
+          <% if @item.long_rental == true %>
+            <p>&#x2705;	Owner accepts long rental</p>
+          <% end %>
+        </div>
+        <div class="list-item">
+          <% if @item.delivery == true %>
+            <p>&#x2705;	Owner offers to deliver</p>
+          <% end %>
+        </div>
+      </div>
+      <div class="reviews">
 
-        <div><%= link_to "Confirm Booking", item_bookings_path(@item), method: :post, :class => "booking-btn btn btn-info"%></div>
+      </div>
+    </div>
+    <div class="middle-breaker-container"></div>
+    <div class="booking-confirm-outer-container">
+      <div class="booking-confirm-inner-container">
+        <div class="item-show-price">
+          <p class="checkout-header">Checkout</p>
+        </div>
+          <% days_booked = 0 %>
+          <%= simple_form_for :booking do |f| %>
+          <%= f.error_notification %>
+          <div class="rental-inputs">
+            <div class="wrapper-input">
+              <%= f.input :pick_up, as: :date, start_year: Date.today.year, end_year: Date.today.year, discard_year: true, order:[:day, :month], input_html: { class: "date-inputs"}, label_html: { class: "date-label", id: "pick-up-day"}, required: false %>
+            </div>
+            <div class="wrapper-input">
+              <%= f.input :return, as: :date, start_year: Date.today.year, end_year: Date.today.year, discard_year: true, order:[:day, :month], input_html: { class: "date-inputs"}, label_html: { class: "date-label", id: "return-days"}, required: false%>
+            </div>
+          </div>
+          <% end %>
+        <div class="booking-button">
+          <%= link_to "Confirm Booking", item_bookings_path(@item), method: :post, :class => "btn"%>
+        </div>
+        <div class="price-calculation-days row">
+          <div class="col-sm">
+          <p class="price-title"><span id="item-price"><%= @item.price %></span> € x <span id="days"> 1 </span> days</p>
+          </div>
+          <div class="col-sm">
+            <p class="price-number"><span id="item-price-between"> <%= @item.price %></span> €</p>
+          </div>
+        </div>
+        <div class="price-service-fee row">
+          <div class="col-sm">
+          <p class="price-title">Service fee</p>
+          </div>
+          <div class="col-sm">
+            <p class="price-number">3 €</p>
+          </div>
+        </div>
+        <div class="price-calculation-total row">
+          <div class="col-sm">
+            <p class="price-total"><strong>Total</strong></p>
+          </div>
+          <div class="col-sm">
+            <p class="price-number"><strong><span id="item-price-total"> <%= @item.price + 3 %></span> €</strong></p>
+          </div>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
-<div class="details-box">
-  <h4>Details</h4>
-      <div class="info-flex">
-        <div class="info-list-item">
-          <h6>Category</h6>
-          <p><%= @item.category %>
-        </div>
-        <div class="info-list-item">
-          <h6> € Price/ Day</h6>
-          <p><%= @item.price %></p>
-        </div>
-        <div class="info-list-item">
-          <h6>Condition</h6>
-          <p><%= @item.condition %></p>
-        </div>
-        <div class="info-list-item">
-          <h6>Delivery</h6>
-          <p><%= @item.delivery %></p>
-        </div>
-        <div class="info-list-item">
-          <h6>Long-Term Rental </h6>
-          <p><%= @item.long_rental %></p>
-        </div>
-        <div class="info-list-item">
-          <h6>Available</h6>
-          <p><%= @item.availability %></p>
-        </div>
-      </div>
-
-      <div class="info-flex-description">
-        <div class="info-list-item">
-          <h6>Description</h6>
-          <p><%= @item.description %></p>
-        </div>
-      </div>
-    </div>
 </div>
