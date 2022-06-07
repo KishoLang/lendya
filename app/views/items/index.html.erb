@@ -1,4 +1,7 @@
-<div class="bg">
+<!-- Load JS -->
+<%= javascript_pack_tag 'adjust_bg_index', defer: true %>
+
+<div class="bg-index" id="bg-index">
   <div class="navbar navbar-expand-lg navbar-light">
      <div class="navbar-brand">
       <%= link_to root_path do %>
@@ -30,7 +33,7 @@
     </div>
   </div>
 
-  <div class="cards">
+  <div class="cards" id="cards-container">
     <% @items.each do |item| %>
       <div class="item-card">
         <%= link_to  item_path(item) do %>

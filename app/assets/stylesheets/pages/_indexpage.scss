@@ -1,9 +1,10 @@
-.bg {
+.bg-index {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     url(asset_path("lightbokebg.jpg"));
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  height: 100vh;
 }
 
 .container-number-items {
