@@ -39,12 +39,15 @@
         <h4><%= @item.title %></h4>
         <div class="item-header-info">
           <div class="rate">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <span> &#183; 12 Reviews &#183; Berlin, Germany</span>
+          <%= sanitize @item.stars %>
+          <span>(<%= @item.average %>)</span>
+          <% if @item.reviews.length < 1 %>
+          <small><p><%= "No reviews"%></p></small>
+          <% elsif @item.reviews.length == 1 %>
+            <small><p><%= "#{@item.reviews.length} review"%></p></small>
+          <% else  %>
+            <small><p><%= "#{@item.reviews.length} reviews"%></p></small>
+          <% end %>
           </div>
             <% if @item.availability == true %>
             <p class="available-text">The <strong><%= @item.title %></strong> is availabe! Go rent it!</p>
@@ -139,3 +142,7 @@
     </div>
   </div>
 </div>
+
+
+
+<%# <span> &#183; 12 Reviews &#183; Berlin, Germany</span> %>
