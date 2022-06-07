@@ -9,13 +9,18 @@
 }
 
 .mainClaimText {
+  font-size: 70px;
   text-align: center;
   color: white;
   text-shadow: black 0px 0px 30px;
   padding-top: 260px;
-  p {
-    font-size: 30px;
+  .second-header {
+    font-size: 50px;
   }
+}
+
+.lendya-span {
+  color: $lendya-yellow;
 }
 
 .container-search-bar {
@@ -52,10 +57,9 @@
   justify-content: center;
   padding-top: 120px;
   padding-bottom: 120px;
-
-  h1 {
-    color: white;
-  }
+  font-size: 70px;
+  color: white;
+  text-shadow: black 0px 0px 30px;
 }
 
 .product-info-cards-container {
@@ -71,20 +75,26 @@
     border-radius: 5px;
   }
 
-  h5 {
-    text-decoration: underline;
+  .product-card-img {
+    border-radius: 5px;
   }
-}
 
-.product-card-ill {
-  border: 2px solid white;
-  border-radius: 5px;
-  background-color: white;
+  .card-title {
+    font-size: 35px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: white;
+    color: $lendya-yellow;
+  }
+
+  .card-text {
+    font-size: 25px;
+  }
 }
 
 .overlay {
   // height: 100vh;
-  margin-top: 35vh;
+  margin-top: 30vh;
   text-align: center;
 }
 
@@ -111,4 +121,11 @@
 .browse-button {
   color: white;
   margin: 2px 16px;
+}
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  display: none;
 }
