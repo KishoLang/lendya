@@ -5,6 +5,12 @@
   width: 100%;
 }
 
+.logo-and-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .brand-logo {
   border-radius: 50%;
   border: 2px solid white;
