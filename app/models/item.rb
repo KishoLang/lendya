@@ -8,6 +8,9 @@ class Item < ApplicationRecord
   has_many :reviews, through: :bookings
   has_one_attached :photo
 
+#  geocoded_by :address, through: :users
+#  after_validation :geocode, if: :will_save_change_to_address?
+
   def average
    if self.reviews.pluck(:rating).size.zero?
      0
@@ -25,7 +28,4 @@ class Item < ApplicationRecord
     star = "<i class='fas fa-star'></i>"
     star * star_number
   end
-
-  #geocode_by :address, throught: :user
-  #after_validation :geocode, if: :will_save_change_to_address?
 end
