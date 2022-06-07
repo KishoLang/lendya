@@ -64,6 +64,13 @@
           <div class="rate">
           <%= sanitize item.stars %>
           <span>(<%= item.average %>)</span>
+          <% if item.reviews.length < 1 %>
+          <small><p><%= "No reviews"%></p></small>
+          <% elsif item.reviews.length == 1 %>
+            <small><p><%= "#{item.reviews.length} review"%></p></small>
+          <% else  %>
+            <small><p><%= "#{item.reviews.length} reviews"%></p></small>
+          <% end %>
           </div>
           <h2><%= item.price %> € / hour</h2>
         </div>

@@ -6,12 +6,7 @@ class ItemsController < ApplicationController
       @items = Item.where("title ILIKE ?", "%#{params[:query]}%")
       # Preventing SQL Injection and Database error for
       # unknown characters
-      #@markers = @users.item.geocoded.map do |flat|
-      #{
-        #lat: flat.latitude,
-        #lng: flat.longitude
-      #}
-      #end
+
     else
       @items = Item.all
     end
