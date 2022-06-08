@@ -25,7 +25,7 @@ class Item < ApplicationRecord
 
   def stars
     star_number = self.average.to_i
-    star = "<i class='fas fa-star'></i>"
+    star = "<span>&#11088;</span>"
     star * star_number
   end
 end

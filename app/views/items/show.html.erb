@@ -1,8 +1,9 @@
 <!-- Load JS -->
 <%= javascript_pack_tag 'calc_days', defer: true %>
+<%= javascript_pack_tag 'button_scroller', defer: true %>
 
 
-<div class="bg-show">
+<div class="bg-show" id=bg-show>
   <div class="navbar navbar-expand-lg navbar-light">
     <div class="logo-and-search">
       <div class="navbar-brand">
@@ -33,21 +34,23 @@
     </div>
   </div>
 
-  <div class="show-container">
+  <div class="show-container" id="show-container">
     <div class="item-show-container">
       <div class="item-show-header">
         <h4><%= @item.title %></h4>
         <div class="item-header-info">
           <div class="rate">
-          <%= sanitize @item.stars %>
-          <span>(<%= @item.average %>)</span>
-          <% if @item.reviews.length < 1 %>
-          <small><p><%= "No reviews"%></p></small>
-          <% elsif @item.reviews.length == 1 %>
-            <small><p><%= "#{@item.reviews.length} review"%></p></small>
-          <% else  %>
-            <small><p><%= "#{@item.reviews.length} reviews"%></p></small>
-          <% end %>
+            <span>
+            <%= sanitize @item.stars %>
+            (<%= @item.average.round(1) %>) &#183;
+            <% if @item.reviews.length < 1 %>
+              <%= "No reviews"%>
+            <% elsif @item.reviews.length == 1 %>
+              <%= "#{@item.reviews.length} review"%>
+            <% else  %>
+              <%= "#{@item.reviews.length} reviews"%>
+            <% end %>
+            </span>
           </div>
             <% if @item.availability == true %>
             <p class="available-text">The <strong><%= @item.title %></strong> is availabe! Go rent it!</p>
@@ -61,22 +64,22 @@
           <%= cl_image_tag @item.photo.key, class: "item-img" %>
         <% end %>
       </div>
+      <h6 class="show-headers"><strong>Description:</strong></h6>
       <div class="item-description">
-        <h6>Description</h6>
         <% if !@item.description.empty? %>
           <p><%= @item.description %></p>
         <% else %>
           <p>The owner hasn't provided a desciption yet</p>
         <% end %>
       </div>
-      <div class="item-extras">
-        <% has_extras = false %>
+      <% has_extras = false %>
         <% if @item.long_rental || @item.delivery %>
           <% has_extras = true %>
         <% end %>
         <% if has_extras == true %>
-          <h6>Extras:</h6>
+          <h6 class="show-headers"><strong>Extras:</strong></h6>
         <% end %>
+      <div class="item-extras">
         <div class="list-item">
           <% if @item.long_rental == true %>
             <p>&#x2705;	Owner accepts long rental</p>
@@ -88,8 +91,26 @@
           <% end %>
         </div>
       </div>
+      <h6 class="show-headers"><strong>Reviews:</strong></h6>
       <div class="reviews">
-
+        <div class="list-group">
+          <% @item.reviews.each do |review| %>
+          <li class="list-group-item review-content">
+            <small>
+              <% count = 0 %>
+              <% 5.times do %>
+                <% if review.rating > count %>
+                  <span>&#11088;</span>
+                <% else %>
+                  <i class="far fa-star empty-stars"></i>
+                <% end %>
+                <% count += 1 %>
+              <% end %>
+            </small>
+            <p><%= review.content %></p>
+          </li>
+        <% end %>
+      </div>
       </div>
     </div>
     <div class="middle-breaker-container"></div>
@@ -141,8 +162,10 @@
       </div>
     </div>
   </div>
+  <button type="button" class="btn btn-info btn-floating btn-lg" id="btn-back-to-top">
+  <i class="fas fa-arrow-up" style="color: white;"></i>
+  </button>
 </div>
 
-
-
-<%# <span> &#183; 12 Reviews &#183; Berlin, Germany</span> %>
+<!-- Load JS -->
+<%= javascript_pack_tag 'adjust_bg_show' %>
