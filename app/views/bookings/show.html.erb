@@ -51,7 +51,7 @@
         <img src="<%= image_path "green-checkmark.png" %>" alt="" class="checkmark">
         <p>Your booking has been confirmed and you will receive all additional information via mail soon!</p>
         <div>
-          <%= link_to 'Manage Bookings', dashboard_path, :class => "btn conf-page-button" %>
+          <%= link_to 'Manage Bookings', dashboard_path(booking_id: @booking.id), :class => "btn conf-page-button" %>
         </div>
       </div>
     </div>
