@@ -34,52 +34,129 @@
     object-position: bottom;
     border: 4px solid $lendya-yellow;
     border-radius: 5px;
+    margin-bottom: 20px;
   }
 
   .show-headers {
-    border-bottom: 4px solid $lendya-yellow;
+    border-bottom: 7px solid $lendya-yellow;
     margin-top: 30px;
+  }
+
+  .item-extras {
+    border: 7px solid $lendya-yellow;
+    border-radius: 5px;
+    background-color: $lendya-yellow;
+    background-image: -webkit-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.2) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.2) 75%,
+      transparent 75%,
+      transparent
+    );
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 40rem;
+    height: auto;
+    max-height: 5rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .extra-item {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .item-description {
     width: 40rem;
-    height: 20rem;
-    overflow: scroll;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    height: auto;
+    max-height: 20rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    direction: rtl;
+
+    p {
+      direction: ltr;
+    }
+  }
+
+  .item-description::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
   }
 
   .item-description::-webkit-scrollbar {
-    display: none;
+    width: 10px;
+    background-color: #f5f5f5;
   }
 
-  .item-extras {
-    margin-top: 20px;
-    width: 40rem;
-    height: 10rem;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  .item-description::-webkit-scrollbar-thumb {
+    background-color: $lendya-yellow;
+    background-image: -webkit-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.2) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.2) 75%,
+      transparent 75%,
+      transparent
+    );
   }
 
   .reviews {
     margin-top: 20px;
     margin-bottom: 100px;
     width: 40rem;
-    height: 40rem;
+    height: auto;
+    max-height: 40rem;
     padding-top: 20px;
     padding-bottom: 20px;
-    overflow: scroll;
+    direction: rtl;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .reviews::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
   }
 
   .reviews::-webkit-scrollbar {
-    display: none;
+    width: 10px;
+    background-color: #f5f5f5;
+  }
+
+  .reviews::-webkit-scrollbar-thumb {
+    background-color: $lendya-yellow;
+    background-image: -webkit-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.2) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.2) 75%,
+      transparent 75%,
+      transparent
+    );
   }
 
   .review-content {
     background-color: transparent;
-    border: 1px solid $lendya-yellow;
+    border: 2px solid $lendya-yellow;
     border-radius: 5px;
     margin: 5px;
+  }
+
+  .list-group {
+    direction: ltr;
   }
 
   .empty-stars {

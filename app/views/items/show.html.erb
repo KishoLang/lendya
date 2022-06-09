@@ -26,6 +26,7 @@
       <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-info" %>
       <% if user_signed_in? %>
       <!--<%= current_user.email %>-->
+        <%= link_to 'MANAGE BOOKINGS', dashboard_path, :class => "nav-text" %>
         <%= link_to 'SIGN OUT', destroy_user_session_path, method: 'delete', :class => "nav-text" %>
       <% else %>
         <%= link_to 'SIGN UP', new_user_registration_path, :class => "nav-text" %>
@@ -64,6 +65,22 @@
           <%= cl_image_tag @item.photo.key, class: "item-img" %>
         <% end %>
       </div>
+      <div class="item-extras">
+        <div class="list-item extra-item">
+          <% if @item.long_rental == true %>
+            <p>&#x2705;	Owner accepts long rental</p>
+          <% else %>
+            <p>&#10060; Owner doesn't accept long rental</p>
+          <% end %>
+        </div>
+        <div class="list-item extra-item">
+          <% if @item.delivery == true %>
+            <p>&#x2705;	Owner offers to deliver</p>
+          <% else %>
+            <p>&#10060; Owner doesn't deliver</p>
+          <% end %>
+        </div>
+      </div>
       <h6 class="show-headers"><strong>Description:</strong></h6>
       <div class="item-description">
         <% if !@item.description.empty? %>
@@ -71,25 +88,6 @@
         <% else %>
           <p>The owner hasn't provided a desciption yet</p>
         <% end %>
-      </div>
-      <% has_extras = false %>
-        <% if @item.long_rental || @item.delivery %>
-          <% has_extras = true %>
-        <% end %>
-        <% if has_extras == true %>
-          <h6 class="show-headers"><strong>Extras:</strong></h6>
-        <% end %>
-      <div class="item-extras">
-        <div class="list-item">
-          <% if @item.long_rental == true %>
-            <p>&#x2705;	Owner accepts long rental</p>
-          <% end %>
-        </div>
-        <div class="list-item">
-          <% if @item.delivery == true %>
-            <p>&#x2705;	Owner offers to deliver</p>
-          <% end %>
-        </div>
       </div>
       <h6 class="show-headers"><strong>Reviews:</strong></h6>
       <div class="reviews">
