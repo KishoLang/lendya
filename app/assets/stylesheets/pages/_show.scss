@@ -12,6 +12,12 @@
   justify-content: center;
   padding-top: 200px;
 
+  .take-down {
+    opacity: 0.5;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
   .available-text {
     display: inline-block;
     background-color: $success;

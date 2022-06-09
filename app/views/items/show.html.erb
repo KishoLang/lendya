@@ -38,7 +38,7 @@
   <div class="show-container" id="show-container">
     <div class="item-show-container">
       <div class="item-show-header">
-        <h4><%= @item.title %></h4>
+        <h4><%= @item.title %> <span><%= link_to 'Take offer down', @item, :class => "btn btn-secondary btn-sm take-down", method: :delete, data: { confirm: 'Are you sure?' } %></span></h4>
         <div class="item-header-info">
           <div class="rate">
             <span>
