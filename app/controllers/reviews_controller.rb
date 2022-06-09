@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = @booking
     if @review.save
-      redirect_to dashboard_path
+      redirect_to dashboard_path(booking_id: @booking.id)
     else
       render "bookings/show"
     end

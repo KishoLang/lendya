@@ -95,6 +95,8 @@
           </div>
         </div>
         <div class="button-group justify-content-center align-items-center m-5">
+          <div> <%= link_to 'Check Item', item_path(@booking.item), :class => "nav-button-lender btn btn-info sized dash-buttons" %>
+          </div>
           <div> <%= link_to 'Rate Booking', new_booking_review_path(@booking), :class => "nav-button-lender btn btn-info sized dash-buttons" %>
           </div>
           <div> <%= link_to 'Cancel Booking', booking_path(@booking), method: :delete, :class => "nav-button-lender btn btn-info sized dash-buttons" %>
