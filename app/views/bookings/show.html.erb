@@ -1,3 +1,6 @@
+ <!-- Load JS -->
+  <%= javascript_pack_tag 'load_confirmation'%>
+
 <div class="bg-index" id="bg-index">
   <div class="navbar navbar-expand-lg navbar-light">
     <div class="logo-and-search">
@@ -33,17 +36,25 @@
     <!-- Make space under navbar -->
   </div>
 
-
-
-
-<%# <div class="booking-pages"> %>
-<div class="booking-header"> Your Booking has been confirmed!</div>
-  <div class="booking-outline">
-    <div>
-      <img src="<%= image_path "checkmark.png" %>" alt="checkmark-png" class="checkmark">
-      <h6>Your booking has been confirmed and you will receive all additional information via mail soon!</h6>
-    </div>
-      <div> <%= link_to 'Manage Bookings', dashboard_path, :class => "nav-button-lender btn btn-info sized conf-page" %>
-          </div>
+  <div class="processing-booking" id="loading-box">
+    <video class="processing-booking-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="<%= image_path "processing-booking-video.mp4" %>" type="video/mp4">
+  </video>
   </div>
+
+  <div class="body-container-booking" id="box">
+    <div class="booking-header">
+      <p>Your Booking has been confirmed!</p>
+    </div>
+    <div class="confirmation-container">
+      <div class="booking-outline">
+        <img src="<%= image_path "checkmark.png" %>" alt="checkmark-png" class="checkmark">
+        <p>Your booking has been confirmed and you will receive all additional information via mail soon!</p>
+        <div>
+          <%= link_to 'Manage Bookings', dashboard_path, :class => "btn conf-page-button" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -1,17 +1,64 @@
+.confirmation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.processing-booking {
+  display: flex;
+  justify-content: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 200px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.processing-booking-video {
+  border: 10px solid white;
+  border-radius: 10px;
+  height: 500px;
+  text-align: center;
+  width: 50rem;
+  height: auto;
+}
+
+#box {
+  visibility: hidden;
+}
+
 .booking-outline {
   padding-top: 100px;
   padding-left: 50px;
-  background-color: white;
+  padding-right: 50px;
+  background-color: $lendya-yellow;
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
   margin-left: 50px;
   margin-right: 50px;
-  border-radius: 20px;
+  border-radius: 10px;
   height: 500px;
   text-align: center;
+  width: 50rem;
+  height: auto;
+  border: 10px solid $lendya-yellow;
 
   img {
     width: 200px;
     height: 200px;
-    }
+  }
+
+  p {
+    font-size: 30px;
+    color: black;
+  }
 }
 
 .booking-header {
@@ -20,11 +67,28 @@
   color: white;
   text-shadow: black 0px 0px 30px;
   padding-top: 120px;
-  padding-left: 50px;
-  height: 100%;
 }
 
+.conf-page-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 4px solid white;
+  border-radius: 10px;
+  color: white;
+}
 
-.conf-page {
-  margin-top: 100px;
+.conf-page-button:hover {
+  color: white;
+  font-weight: bold;
+  background-color: $lendya-yellow;
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
 }
