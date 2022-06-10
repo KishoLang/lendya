@@ -1,3 +1,39 @@
+<div class="bg-review" id="bg-review">
+  <div class="navbar navbar-expand-lg navbar-light">
+    <div class="logo-and-search">
+      <div class="navbar-brand">
+        <%= link_to root_path do %>
+        <%= image_tag "lendya-logo-yellow.png", class:"brand-logo" %>
+        <% end %>
+      </div>
+      <div class="container-search-bar non-home-search-bar">
+        <%= form_tag items_path, :class => "search-bar", method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control search-input",
+          placeholder: "Do you need anything else?"
+        %>
+        <%= submit_tag "Search", class: "nav-button-lender btn btn-info", id: "search-button" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end align-items-center m-4">
+      <%= link_to 'Become a lender', new_item_path, :class => "nav-button-lender btn btn-info" %>
+      <% if user_signed_in? %>
+      <!--<%= current_user.email %>-->
+        <%= link_to 'MANAGE BOOKINGS', dashboard_path, :class => "nav-text" %>
+        <%= link_to 'SIGN OUT', destroy_user_session_path, method: 'delete', :class => "nav-text" %>
+      <% else %>
+        <%= link_to 'SIGN UP', new_user_registration_path, :class => "nav-text" %>
+        <%= link_to 'LOGIN', new_user_session_path, :class => "nav-text"%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="under-nav-breaker">
+    <!-- Make space under navbar -->
+  </div>
+
 <div class="container py-5">
   <div class="row">
     <div class="form-upload shadow-sm p-3 mb-5 bordered col-12 col-md-6 offset-lg-3 justify-content-center p-5">
@@ -29,4 +65,5 @@
       </div>
     </div>
   <div>
+</div>
 </div>

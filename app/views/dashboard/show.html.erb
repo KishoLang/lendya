@@ -36,10 +36,14 @@
     <!-- Make space under navbar -->
   </div>
 
-<div class="dashboard-header"> Your Bookings </div>
+<div class="dashboard-header">
+<p class="dash-header"><strong>Your <span class="lendya-span">lendya</span> Dashboard</strong></p>
+</div>
 
 <div class="dashboard-outline" id="dash-outline">
-  <div class="bookings-column">
+  <div class="bookings-column-container">
+    <p class="your-bookings-header"><strong>Your Bookings:</strong></p>
+    <div class="bookings-column">
     <div class="booking-column-items">
       <% @bookings.each do |booking| %>
       <%= link_to dashboard_path(booking_id: booking.id), class: "booking-link" do %>
@@ -50,6 +54,7 @@
       <% end %>
     <% end %>
     </div>
+  </div>
   </div>
   <div class="chat-window">
     <div class="info-container">
@@ -64,13 +69,13 @@
       </div>
 
       <div class="info-box">
-        <h4 class="mt-5"> <%= @booking.item.title %> </h4>
+        <h4><%= @booking.item.title %></h4>
           <div class="key-data">
-            <div class="key-item"><p style="font-size: 20px"><strong>Category:</strong> <%= @booking.item.category %> </p></div>
-            <div><p style="font-size: 20px"><strong>Condition:</strong> <%= @booking.item.condition %></p></div>
-            <div><p class="price-tag"><%= @booking.item.price %> € / Day</div>
+            <div class="key-item"><p style="padding-left: 0px; font-size: 20px"><strong>Category:</strong> <%= @booking.item.category %>  </p></div>
+            <div><p style="font-size: 20px"><strong>Condition:</strong> <%= @booking.item.condition %> </p></div>
+            <div><p class="price-tag"><strong><%= @booking.item.price %> €</strong> / Day</div>
           </div>
-        <h6><strong>Description: </strong></h6>
+        <h6><strong>Description:</strong></h6>
         <div class="dashboard-description">
           <% if !@booking.item.description.empty? %>
           <p><%= @booking.item.description %></p>
@@ -81,21 +86,21 @@
         <div class="item-extras">
           <div class="list-item extra-item">
             <% if @booking.item.long_rental == true %>
-              <p style="font-size: 20px">&#x2705;	Owner accepts long rental</p>
+              <p style="font-size: 20px">&#10004;	Owner accepts long rental</p>
             <% else %>
               <p style="font-size: 20px">&#10060; Owner doesn't accept long rental</p>
             <% end %>
           </div>
           <div class="list-item extra-item">
             <% if @booking.item.delivery == true %>
-              <p style="font-size: 20px">&#x2705;	Owner offers to deliver</p>
+              <p style="font-size: 20px">	&#10004; Owner offers to deliver</p>
             <% else %>
               <p style="font-size: 20px">&#10060; Owner doesn't deliver</p>
             <% end %>
           </div>
         </div>
-        <div class="button-group justify-content-center align-items-center m-5">
-          <div> <%= link_to 'Check Item', item_path(@booking.item), :class => "nav-button-lender btn btn-info sized dash-buttons" %>
+        <div class="button-group align-items-center">
+          <div> <%= link_to 'Check Item', item_path(@booking.item), :class => "nav-button-lender btn btn-info sized dash-buttons left-button" %>
           </div>
           <div> <%= link_to 'Rate Booking', new_booking_review_path(@booking), :class => "nav-button-lender btn btn-info sized dash-buttons" %>
           </div>
