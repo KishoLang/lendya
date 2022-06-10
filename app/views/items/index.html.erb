@@ -1,3 +1,6 @@
+<!-- Load JS -->
+<%= javascript_pack_tag 'button_scroller', defer: true %>
+
 <div class="bg-index" id="bg-index">
   <div class="navbar navbar-expand-lg navbar-light">
     <div class="logo-and-search">
@@ -80,6 +83,11 @@
     <% end %>
   </div>
   <h3 class="text-center"><%= link_to "Go back", root_path, :class => "btn btn-link" %></h3>
+
+<button type="button" class="btn btn-info btn-floating btn-lg" id="btn-back-to-top">
+  <i class="fas fa-arrow-up" style="color: white;"></i>
+</button>
+
 </div>
 
 <!-- Load JS -->
